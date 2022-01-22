@@ -5,8 +5,101 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:T9AutoCompletedWithTPL"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" MinHeight="580" MinWidth="292" MaxHeight="580" MaxWidth="292">
+    <Window.Resources>
+        <Style x:Key="numButton" TargetType="Button">
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Height" Value="45"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+    </Window.Resources>
+
+
+
+
+    <Grid Background="Silver">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="txbWriting"
+                 Margin="10" 
+                 AcceptsReturn="True" 
+                 VerticalScrollBarVisibility="Auto" 
+                 HorizontalScrollBarVisibility="Disabled" 
+                 TextWrapping="Wrap"
+                 FontSize="16"
+                 TextChanged="TxbWriting_TextChanged"
+                 SelectionBrush="DodgerBlue" SelectionOpacity="0.5"
+                 KeyUp="TxbWriting_KeyDown"
+                 >
+
+        </TextBox>
+
+        <Grid Grid.Row="1">
+            <ToggleButton x:Name="tglBtnAutoCompleted" Margin="197,11,-3,88" Click="TglBtnAutoCompleted_Click"/>
+            <TextBlock Text="Auto-Completed" Margin="190,-9,-6,108" FontSize="11" FontWeight="Bold"/>
+            <Button x:Name="btnUp" Height="40" Width="40" VerticalAlignment="Top" Content="▲" FontSize="24" Click="BtnUp_Click"/>
+            <Button x:Name="btnLeft" Height="44" Width="40" Content="◀" FontSize="24" Margin="0,0,80,0" Click="BtnLeft_Click"/>
+            <Button x:Name="btnRight" Height="44" Width="40" Content="▶" FontSize="24" Margin="80,0,0,0" Click="BtnRight_Click"/>
+            <Button x:Name="btnDown" Height="40" Width="40" VerticalAlignment="Bottom" Content="▼" FontSize="24" Click="BtnDown_Click"/>
+            <Button x:Name="btnClear" Height="25" Width="69" VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="C" FontSize="16" Margin="14,0,0,6" Click="BtnClear_Click"/>
+            <Button x:Name="btnAdd" Height="25" Width="66" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Add" FontSize="16" Margin="0,0,14,6" Click="BtnAdd_Click"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Style="{StaticResource numButton}" Content="1" Click="BtnNumpad_Click"/>
+            <Grid Grid.Column="1">
+                <Button Style="{StaticResource numButton}" Content="2" Click="BtnNumpad_Click"/>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Button Style="{StaticResource numButton}" Content="3" Click="BtnNumpad_Click"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Button Style="{StaticResource numButton}" Content="4" Click="BtnNumpad_Click"/>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Button Style="{StaticResource numButton}" Content="5" Click="BtnNumpad_Click"/>
+            </Grid>
+            <Grid Grid.Column="2" Grid.Row="1">
+                <Button Style="{StaticResource numButton}" Content="6" Click="BtnNumpad_Click"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Button Style="{StaticResource numButton}" Content="7" Click="BtnNumpad_Click"/>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="2">
+                <Button Style="{StaticResource numButton}" Content="8" Click="BtnNumpad_Click"/>
+            </Grid>
+            <Grid Grid.Column="2" Grid.Row="2">
+                <Button Style="{StaticResource numButton}" Content="9" Click="BtnNumpad_Click"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Button Style="{StaticResource numButton}" Content="*" Click="BtnNumpad_Click"/>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="3">
+                <Button Style="{StaticResource numButton}" Content="0" Click="BtnNumpad_Click"/>
+            </Grid>
+            <Grid Grid.Column="2" Grid.Row="3">
+                <Button Style="{StaticResource numButton}" Content="+" Click="BtnNumpad_Click"/>
+            </Grid>
+        </Grid>
+
     </Grid>
 </Window>
